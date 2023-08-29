@@ -122,3 +122,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+DJANGO_AI_CHAT_OPENAI_API_KEY = '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'

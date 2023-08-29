@@ -20,4 +20,5 @@ class Chat(models.Model):
 class Message(models.Model):
     update_time = models.DateTimeField(auto_now=True)
     chat = models.ForeignKey(Chat, on_delete=models.CASCADE)
+    role = models.CharField(max_length=100)
     content = models.TextField(blank=True)

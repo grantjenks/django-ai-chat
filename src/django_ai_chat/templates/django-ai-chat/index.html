@@ -1,4 +1,4 @@
-{% load static %}
+{% load static django_ai_chat_extras %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,11 +12,13 @@
      section aside { width: 100%; margin: 1rem 0 }
      section form { width: 100% }
      button { float: right }
+     #section-assistant { padding-top: 1rem }
     </style>
     <meta charset="utf-8">
     <meta name="description" content="Chat">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat</title>
+    <script src="https://unpkg.com/htmx.org@1.9.5" integrity="sha384-xcuj3WpfgjlKF+FXhSQFQ0ZNr39ln+hwjN3npfM9VBnUskLolQAcN80McRIVOPuO" crossorigin="anonymous"></script>
   </head>
   <body>
     <header>
@@ -29,24 +31,29 @@
     </header>
     <main>
       <section id="section-send">
-        <form>
-          <label>Say something ...</label>
+        <form method="post">
+          {% csrf_token %}
+          <input type="hidden" name="action" value="user">
+          <label>User</label>
           <textarea cols="40" rows="5" name="message"></textarea>
           <button type="submit">Send</button>
         </form>
       </section>
-      <section id="section-1">
-        <aside>
-          <h3>User</h3>
-          <p>User content</p>
-        </aside>
+      <section id="section-assistant">
+        <form method="post">
+          {% csrf_token %}
+          <input type="hidden" name="action" value="assistant">
+          <button type="submit">Generate</button>
+        </form>
       </section>
-      <section id="section-2">
-        <aside>
-          <h3>Assistant</h3>
-          <p>Assistant content</p>
-        </aside>
-      </section>
+      {% for message in messages %}
+        <section id="section-{{ message.id }}">
+          <aside>
+            <h3>{{ message.role|title }}</h3>
+            {{ message.content|markdown }}
+          </aside>
+        </section>
+      {% endfor %}
     </main>
   </body>
 </html>
