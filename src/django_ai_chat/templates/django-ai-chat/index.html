@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="{% static 'django-ai-chat/chat.png' %}">
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css"> 
+    <style>
+     header { padding-top: 1rem; padding-bottom: 0 }
+     nav { margin-bottom: 0 }
+     main { padding: 1rem }
+     section { max-width: 40rem; margin: 0 auto }
+     section aside { width: 100%; margin: 1rem 0 }
+     section form { width: 100% }
+     button { float: right }
+    </style>
+    <meta charset="utf-8">
+    <meta name="description" content="Chat">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="{% url 'new-chat' %}"><img alt="Chat Logo" src="{% static 'django-ai-chat/chat.png' %}" height="70"></a>
+        <ul>
+          <li><a href="{% url 'new-chat' %}">New Chat</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section id="section-send">
+        <form>
+          <label>Say something ...</label>
+          <textarea cols="40" rows="5" name="message"></textarea>
+          <button type="submit">Send</button>
+        </form>
+      </section>
+      <section id="section-1">
+        <aside>
+          <h3>User</h3>
+          <p>User content</p>
+        </aside>
+      </section>
+      <section id="section-2">
+        <aside>
+          <h3>Assistant</h3>
+          <p>Assistant content</p>
+        </aside>
+      </section>
+    </main>
+  </body>
+</html>
