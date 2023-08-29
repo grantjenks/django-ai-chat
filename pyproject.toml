@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django-ai-chat"
+description = "Django AI Chat"
+authors = [
+    {"name" = "Grant Jenks", "email" = "contact@grantjenks.com"},
+]
+readme = "README.rst"
+requires-python = ">=3.7"
+keywords = ["django", "codemirror"]
+license = {"text" = "Apache 2.0"}
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Framework :: Django",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Natural Language :: English",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+dependencies = ["Django", "openai"]
+dynamic = ["version"]
+
+[project.urls]
+Documentation = "https://grantjenks.com/docs/django-ai-chat/"
+Source = "https://github.com/grantjenks/django-ai-chat"
+Tracker = "https://github.com/grantjenks/django-ai-chat/issues"
+
+[tool.setuptools.dynamic]
+version = {attr = "django_ai_chat.__version__"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
