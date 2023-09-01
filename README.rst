@@ -27,11 +27,25 @@ Installing Django AI Chat is simple with `pip
 
     $ pip install django-ai-chat
 
-Change `settings.py` like:
+Add `django_ai_chat` to the installed apps in `settings.py` like:
 
 .. code::
 
    INSTALLED_APPS += ['django_ai_chat']
+
+And add `django_ai_chat.urls` to the urlpatterns in `urls.py` like:
+
+.. code::
+
+   urlpatterns += [
+       path('ai-chat/', include('django_ai_chat.urls')),
+   ]
+
+Then run:
+
+.. code::
+
+   $ python manage.py migrate
 
 
 Reference and Indices
