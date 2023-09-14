@@ -1,0 +1,116 @@
+{% load static django_ai_chat_extras %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Chat App</title>
+    <style>
+     body {
+         font-family: Arial, sans-serif;
+         margin: 0;
+         display: flex;
+         height: 100vh;
+     }
+
+     nav {
+         flex: 0 0 20%;
+         background-color: #f4f4f4;
+         padding: 20px;
+         box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+         overflow-y: auto;
+     }
+
+     main {
+         flex: 1;
+         padding: 20px;
+         display: flex;
+         flex-direction: column;
+         justify-content: space-between;
+         overflow-y: auto;
+     }
+
+     ul {
+         list-style-type: none;
+         padding: 0;
+     }
+
+     li {
+         padding: 10px;
+         border-bottom: 1px solid #ddd;
+     }
+
+     li:last-child {
+         border-bottom: none;
+     }
+
+     .card {
+         max-width: 60%;
+         border: 1px solid #ddd;
+         padding: 10px;
+         margin: 10px 0;
+         border-radius: 5px;
+     }
+
+     .received {
+         background-color: #f1f1f1;
+         align-self: flex-start;
+     }
+
+     .sent {
+         background-color: #dff5d8;
+         align-self: flex-flex-end;
+         margin-left: auto;
+     }
+
+     .chat-input {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         margin-top: 20px;
+     }
+
+     textarea {
+         width: 80%;
+         padding: 10px;
+         resize: vertical;
+     }
+
+     button {
+         padding: 10px 15px;
+         cursor: pointer;
+         background-color: #4CAF50;
+         color: white;
+         border: none;
+         border-radius: 5px;
+     }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li>Chat 1</li>
+        <li>Chat 2</li>
+        <li>Chat 3</li>
+        <!-- Add more chats as needed -->
+      </ul>
+    </nav>
+    <main>
+      <div>
+        <div class="card received">
+          Hello there!
+        </div>
+        <div class="card sent">
+          Hi! How can I help you?
+        </div>
+        <!-- Add more dialogue cards as needed -->
+      </div>
+      <div class="chat-input">
+        <form action="#" method="post">
+          <textarea name="message" rows="3" placeholder="Type your message here..."></textarea>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
